@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131b">
+  <title>Java Quest</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Java Quest início"><span class="brand-mark">J</span><span>JAVA
+          <b>QUEST</b></span></a>
+      <div class="level-heading"><span class="eyebrow">MISSÃO ATUAL</span>
+        <h1 id="levelTitle">Primeiros Passos</h1>
+      </div>
+      <div class="top-actions">
+        <div class="attempts"><span class="attempt-icon">↻</span><span id="attemptCount">0</span><span
+            class="attempt-label">tentativas</span></div><button id="helpButton" class="icon-button" aria-label="Ajuda"
+          title="Ajuda">?</button>
+      </div>
+    </header>
+    <div class="workspace">
+      <aside class="panel level-panel">
+        <div class="panel-head"><span class="panel-kicker">JORNADA</span><span id="progressLabel"
+            class="progress-label">0 / 8</span></div>
+        <div class="progress-track"><span id="progressFill"></span></div>
+        <nav id="levelList" class="level-list" aria-label="Níveis"></nav>
+      </aside>
+      <section class="center-column">
+        <section class="panel mission-panel">
+          <div class="mission-copy">
+            <div class="mission-meta"><span id="levelTag" class="tag">NÍVEL 01</span><span class="concept-label"
+                id="conceptLabel">ORDEM DE COMANDOS</span></div>
+            <p id="objectiveText"></p>
+          </div>
+          <div class="board-frame">
+            <div id="board" class="board" role="grid" aria-label="Tabuleiro"></div>
+          </div>
+          <div class="game-controls">
+            <button id="runButton" class="button button-primary"><span>▶</span> Executar</button>
+            <button id="stepButton" class="button button-step"><span>◷</span> Passo a passo</button>
+            <button id="resetButton" class="button button-quiet">Resetar</button>
+          </div>
+          <div class="secondary-controls"><button id="hintButton" class="text-button">Ver dica <span>↗</span></button>
+          </div>
+          <div id="hintBox" class="hint-box" hidden><span class="hint-spark">✳</span><span id="hintText"></span></div>
+        </section>
+        <section class="panel concept-panel">
+          <div class="concept-icon" id="conceptIcon">⌘</div>
+          <div><span class="panel-kicker">CONCEITO-CHAVE</span>
+            <p id="conceptText"></p>
+          </div>
+        </section>
+      </section>
+      <aside class="panel editor-panel">
+        <div class="editor-head">
+          <div><span class="panel-kicker">SEU PROGRAMA</span><span class="file-name"><i></i> Main.java</span></div><span
+            class="java-badge">JAVA</span>
+        </div>
+        <div class="editor-wrap">
+          <div id="lineNumbers" class="line-numbers" aria-hidden="true"></div><textarea id="codeEditor"
+            spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"
+            aria-label="Editor de código Java" placeholder="// Escreva seu código aqui
+
+"></textarea>
+        </div>
+        <div class="console-head"><span class="panel-kicker">CONSOLE</span><button id="clearConsole"
+            class="clear-console" title="Limpar console" aria-label="Limpar console">×</button></div>
+        <div id="consoleOutput" class="console-output" aria-live="polite">
+          <div class="console-entry muted"><span class="console-dot"></span>Pronto para executar seu programa.</div>
+        </div>
+        <div class="editor-foot"><span><i class="status-dot"></i><span id="runStatus">Aguardando
+              código</span></span><span id="lineCount">1 linha</span></div>
+      </aside>
+    </div>
+  </main>
+  <div id="completionModal" class="modal-backdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button id="closeModal"
+        class="modal-close" aria-label="Fechar">×</button>
+      <div class="celebration">✦</div>
+      <div id="starRow" class="star-row">★★★</div><span class="panel-kicker">MISSÃO CONCLUÍDA</span>
+      <h2 id="modalTitle">Muito bem!</h2>
+      <p id="modalBody"></p>
+      <div class="modal-concept"><span>IDEIA DESBLOQUEADA</span>
+        <p id="modalConcept"></p>
+      </div><button id="nextLevelButton" class="button button-primary modal-next">Próxima missão <span>→</span></button>
+    </section>
+  </div>
+  <div id="helpModal" class="modal-backdrop" hidden>
+    <section class="modal help-modal" role="dialog" aria-modal="true" aria-labelledby="helpTitle"><button
+        class="modal-close help-close" aria-label="Fechar">×</button><span class="panel-kicker">GUIA RÁPIDO</span>
+      <h2 id="helpTitle">Comande o robô com Java</h2>
+      <p>Escreva instruções no editor e execute para guiar o robô 🤖 até a porta 🚪. Pegue todos os cristais 💎 e evite
+        paredes 🧱 e espinhos 🔥.</p>
+      <div class="help-code"><code>mover();</code><span>Anda uma casa para a
+          frente</span><code>girarDireita();</code><span>Gira 90° para a
+          direita</span><code>coletar();</code><span>Guarda o cristal da casa
+          atual</span><code>for (int i = 0; i &lt; 3; i++) { ... }</code><span>Repete instruções</span></div><button
+        class="button button-primary help-close-bottom">Entendi</button>
+    </section>
+  </div>
+</body>
+
+</html>
